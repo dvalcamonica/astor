@@ -44,13 +44,21 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.3</version>
+		</dependency>
 		<dependency>
 			<groupId>com.github.spoonlabs</groupId>
 			<artifactId>flacoco</artifactId>
 			<version>1.0.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
 		<dependency>
 			<!-- doc: https://logging.apache.org/log4j/2.0/faq.html -->
 			<groupId>org.apache.logging.log4j</groupId>
@@ -85,12 +93,6 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.5</version>
 		</dependency>
 
 		<dependency>
@@ -149,12 +151,12 @@
 
 	</dependencies>
 
-        <repositories>
-                 <repository>
-                     <id>sonatype-snapshots</id>
-                        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                        <snapshots />
-                </repository>
+	<repositories>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots />
+		</repository>
 		<repository>
 			<id>inria</id>
 			<url>http://spoon.gforge.inria.fr/repositories/releases/</url>
@@ -162,8 +164,8 @@
 		<repository>
 			<id>spoon-snapshot</id>
 			<name>maven repository for spoon snapshots</name>
-                        <url>https://repository.ow2.org/nexus/content/repositories/snapshots/</url>
-                        <snapshots/>
+			<url>https://repository.ow2.org/nexus/content/repositories/snapshots/</url>
+			<snapshots />
 		</repository>
 		<repository>
 			<id>EvoSuite</id>
@@ -430,7 +432,7 @@
 
 
 	<distributionManagement>
-		
+
 		<repository>
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
@@ -439,6 +441,6 @@
 			<id>ossrh-snapshot</id>
 			<url>https://oss.sonatype.org/repositories/snapshots</url>
 		</snapshotRepository>
-		
+
 	</distributionManagement>
 </project>
