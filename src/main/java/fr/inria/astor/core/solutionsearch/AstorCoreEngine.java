@@ -31,6 +31,7 @@ import fr.inria.astor.core.entities.validation.VariantValidationResult;
 import fr.inria.astor.core.faultlocalization.FaultLocalizationStrategy;
 import fr.inria.astor.core.faultlocalization.cocospoon.CocoFaultLocalization;
 import fr.inria.astor.core.faultlocalization.entity.SuspiciousCode;
+import fr.inria.astor.core.faultlocalization.except.exceptFaultLocalizationStrategy;
 import fr.inria.astor.core.faultlocalization.gzoltar.GZoltarFaultLocalization;
 import fr.inria.astor.core.manipulation.MutationSupporter;
 import fr.inria.astor.core.manipulation.bytecode.entities.CompilationResult;
@@ -819,7 +820,7 @@ public abstract class AstorCoreEngine implements AstorExtensionPoint {
 	 * This method updates modification point of a variant according to a created
 	 * GenOperationInstance
 	 * 
-	 * @param variant        variant to modify the modification point information
+	 * @param variant   variant to modify the modification point information
 	 * @param operation operator to apply in the variant.
 	 */
 	protected void updateVariantGenList(ProgramVariant variant, OperatorInstance operation) {
@@ -972,6 +973,8 @@ public abstract class AstorCoreEngine implements AstorExtensionPoint {
 			this.setFaultLocalization(new GZoltarFaultLocalization());
 		} else if (flvalue.equals("cocospoon")) {
 			this.setFaultLocalization(new CocoFaultLocalization());
+		} else if (flvalue.equals("except")) {
+			this.setFaultLocalization(new exceptFaultLocalizationStrategy());
 		} else
 			this.setFaultLocalization(
 					(FaultLocalizationStrategy) PlugInLoader.loadPlugin(ExtensionPoints.FAULT_LOCALIZATION));

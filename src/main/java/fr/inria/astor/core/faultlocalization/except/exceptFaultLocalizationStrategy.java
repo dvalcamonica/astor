@@ -94,7 +94,8 @@ public class exceptFaultLocalizationStrategy implements FaultLocalizationStrateg
 
 		for (RepairTarget repairTarget : repairTargetList2) {
 			SuspiciousCode tmp = new SuspiciousCodeGuessedFault(repairTarget.getSuspiciousLocation().getClassName(),
-					repairTarget.getSuspiciousLocation().getMethodName(), repairTarget.getSuspiciousnessScore(),
+					repairTarget.getSuspiciousLocation().getMethodName(),
+					repairTarget.getSuspiciousLocation().getLineNumber(), repairTarget.getSuspiciousnessScore(), null,
 					repairTarget.getGuessedFault());
 			candidates.add(tmp);
 		}

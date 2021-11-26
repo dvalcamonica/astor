@@ -88,6 +88,12 @@ public abstract class AbstractMain {
 		options.addOption("bug340", false, "Run the bug 340 from Apache Commons Math");
 
 		// Optional parameters
+		options.addOption("sbflRanking", true,
+				"(Mandatory for except fault localization) The file that contains the SBFL ranking values.");
+		options.addOption("failingTestName", true,
+				"(Mandatory for except fault localization) It specifies the name of the failing test case to be executed.");
+		options.addOption("failingTestClass", true,
+				"(Mandatory for except fault localization) It specifies the class that contains the failing test case to be executed.");
 		options.addOption("jvm4testexecution", true,
 				"(Optional) location of JVM that executes the mutated version of a program (Folder that contains java script, such as /bin/ ).");
 		options.addOption("jvm4evosuitetestexecution", true,
@@ -363,6 +369,21 @@ public abstract class AbstractMain {
 
 			ConfigurationProperties.properties.setProperty("jvm4testexecution", javahome);
 
+		}
+
+		/**
+		 * sbflRanking, failingTestName, failingTestClass
+		 */
+		if (cmd.hasOption("sbflRanking")) {
+			ConfigurationProperties.properties.setProperty("sbflRanking", cmd.getOptionValue("sbflRanking"));
+		}
+
+		if (cmd.hasOption("failingTestClass")) {
+			ConfigurationProperties.properties.setProperty("failingTestClass", cmd.getOptionValue("failingTestClass"));
+		}
+
+		if (cmd.hasOption("failingTestName")) {
+			ConfigurationProperties.properties.setProperty("failingTestName", cmd.getOptionValue("failingTestName"));
 		}
 
 		if (cmd.hasOption("jvm4evosuitetestexecution")) {
