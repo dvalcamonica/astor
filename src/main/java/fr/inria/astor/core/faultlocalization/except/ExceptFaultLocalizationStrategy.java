@@ -17,8 +17,8 @@ import fr.inria.astor.core.setup.ConfigurationProperties;
 import fr.inria.astor.core.setup.FinderTestCases;
 import fr.inria.astor.core.setup.ProjectRepairFacade;
 
-public class exceptFaultLocalizationStrategy implements FaultLocalizationStrategy {
-	public Logger log = Logger.getLogger(exceptFaultLocalizationStrategy.class.getName());
+public class ExceptFaultLocalizationStrategy implements FaultLocalizationStrategy {
+	public Logger log = Logger.getLogger(ExceptFaultLocalizationStrategy.class.getName());
 
 	public FaultLocalizationResult searchSuspicious(ProjectRepairFacade projectToRepair, List<String> testToRun)
 			throws Exception {
@@ -82,10 +82,9 @@ public class exceptFaultLocalizationStrategy implements FaultLocalizationStrateg
 		List<RepairTarget> repairTargetList2 = repairTargetByFailureInfo.get(failureInfoList.get(0));
 
 		List<RepairTarget> repairTargetList1 = SbflRankMergingUtil.mergeAstor(repairTargetList2, sbflRankFile);
+
 		if (repairTargetList2 != null)
 			repairTargetList2.addAll(repairTargetList1);
-		else
-			repairTargetList2 = repairTargetList1;
 
 		List<SuspiciousCode> candidates = new ArrayList<SuspiciousCode>();
 		List<String> failingTest = new ArrayList<String>();
